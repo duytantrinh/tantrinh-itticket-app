@@ -7,15 +7,15 @@ import {OPTIONS} from "../auth/[...nextauth]/route"
 
 export async function POST(req: NextRequest) {
   // check Logged IN ?
-  const session = await getServerSession(OPTIONS)
-  if (!session) {
-    return NextResponse.json({error: "Not authenticated"}, {status: 401})
-  }
+  // const session = await getServerSession(OPTIONS)
+  // if (!session) {
+  //   return NextResponse.json({error: "Not authenticated"}, {status: 401})
+  // }
 
-  // ONLY ADMIN can create new user
-  if (session.user.role !== "ADMIN") {
-    return NextResponse.json({error: "Not authenticated"}, {status: 401})
-  }
+  // // ONLY ADMIN can create new user
+  // if (session.user.role !== "ADMIN") {
+  //   return NextResponse.json({error: "Not authenticated"}, {status: 401})
+  // }
 
   const body = await req.json()
   const validation = userSchema.safeParse(body)

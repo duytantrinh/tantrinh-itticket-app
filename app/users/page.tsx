@@ -7,10 +7,10 @@ import {OPTIONS} from "../api/auth/[...nextauth]/route"
 
 export default async function Users() {
   // get authentication USer
-  const session = await getServerSession(OPTIONS)
-  if (session?.user.role !== "ADMIN") {
-    return <p className="text-destructive">Admin Access required</p>
-  }
+  // const session = await getServerSession(OPTIONS)
+  // if (session?.user.role !== "ADMIN") {
+  //   return <p className="text-destructive">Admin Access required</p>
+  // }
 
   const users = await prisma.user.findMany()
 
